@@ -7,4 +7,4 @@ def index(request: HttpRequest) -> HttpResponse:
     context = {
         'message': 'The first app'
     }
-    return render(request=request, template_name='index.html', context=context)
+    return render(request=request, template_name='first_app/index.html', context=context)
