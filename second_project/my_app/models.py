@@ -19,12 +19,8 @@ class WebPage(models.Model):
 
 
 class AccessRecord(models.Model):
-    name = models.ForeignKey(WebPage, on_delete=models.CASCADE)
+    webpage = models.ForeignKey(WebPage, on_delete=models.CASCADE)
     date = models.DateField()
 
     def __repr__(self):
         return str(self.date)
-
-
-if __name__ == '__main__':
-    print(Topic.objects.all())
