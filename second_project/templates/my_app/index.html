@@ -5,6 +5,25 @@
     <title>My Application</title>
 </head>
 <body>
-<p>{{ message }}</p>
+<h1>Access records</h1>
+<h3>Here are the webpage access records</h3>
+<div>
+    {% if access_records %}
+    <table>
+        <thead>
+        <th>Website</th>
+        <th>Date accessed</th>
+        </thead>
+        {% for record in access_records %}
+        <tr>
+            <td>{{ record.webpage.url }}</td>
+            <td>{{ record.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h4>No access records found</h4>
+    {% endif %}
+</div>
 </body>
 </html>
