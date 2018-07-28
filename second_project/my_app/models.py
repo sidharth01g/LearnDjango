@@ -24,3 +24,12 @@ class AccessRecord(models.Model):
 
     def __repr__(self):
         return str(self.date)
+
+
+class User(models.Model):
+    first_name = models.CharField(max_length=264)
+    last_name = models.CharField(max_length=264)
+    email = models.EmailField(unique=True)
+
+    def __repr__(self) -> str:
+        return "<{} {}: {}>".format(self.first_name, self.last_name, self.email)
