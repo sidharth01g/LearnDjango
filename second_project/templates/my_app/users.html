@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h22>User details</h22>
+{% if users %}
+<table>
+    <thead>
+    <td>First Name</td>
+    <td>Last name</td>
+    <td>Email</td>
+    </thead>
+    <tr>
+        {% for user in users %}
+        <td>user,first_name</td>
+        <td>user.last_name</td>
+        <td>user.email</td>
+        {% endfor %}
+    </tr>
+</table>
+
+{% endif %}
+</body>
+</html>
