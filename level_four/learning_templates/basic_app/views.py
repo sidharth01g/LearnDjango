@@ -5,7 +5,8 @@ from django.http import HttpResponse, HttpRequest
 # Create your views here.
 def index(request: HttpRequest) -> HttpResponse:
     context = {
-
+        'text': 'hello world!',
+        'number': 1234,
     }
     return render(request=request, template_name='basic_app/index.html', context=context)
 
