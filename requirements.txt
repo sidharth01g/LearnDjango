@@ -1,2 +1,4 @@
 Django
 Faker
+bcrypt
+django[argon2]
