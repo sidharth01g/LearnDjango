@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from basic_app.forms import UserForm, UserProfileInfoForm
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.contrib.auth import login, authenticate, logout
 
 
 # Create your views here.
@@ -53,3 +57,27 @@ def register(request: HttpRequest) -> HttpResponse:
         'profile_form': profile_form,
     }
     return render(request=request, template_name='basic_app/registration.html', context=context)
+
+
+@login_required  # Login is required first for a user to be logged out
+def user_logout(request: HttpRequest) -> HttpResponse:
+    logout(request=request)
+    return HttpResponseRedirect(redirect_to=reverse('index'))
+
+
+def user_login(request: HttpRequest) -> HttpResponse:
+    if request.method == 'POST':
+        username = request.POST.get(key='username')
+        password = request.POST.get(key='password')
+
+        # Authenticate user
+        user = authenticate(username=username, password=password)
+
+        if user:
+            # Check if user is active
+            if user.is_active:
+                # Login user
+                login(request=request, user=user)
+                return HttpResponseRedirect(redirect_to=reverse('index'))
+
+    return render(request=request, template_name='basic_app/login.html')
