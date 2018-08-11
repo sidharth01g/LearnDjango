@@ -18,7 +18,7 @@ from django.conf.urls import url, include
 from basic_app import views
 
 urlpatterns = [
-    url(regex=r'^$', view=views.index, name='index'),
     url(regex=r'^admin/', view=admin.site.urls),
     url(regex=r'^basic_app/', view=include('basic_app.urls')),
+    url(regex=r'^$', view=views.index, name='index'),
 ]
