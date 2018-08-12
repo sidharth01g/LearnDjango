@@ -6,3 +6,6 @@ from django.views.generic import View, TemplateView
 class IndexView(TemplateView):
     template_name = 'basic_app/index.html'
 
+
+
+
