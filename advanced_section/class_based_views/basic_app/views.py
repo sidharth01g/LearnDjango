@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 
 
-class AppView(View):
-    def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request=request, template_name='basic_app/index.html', context={})
+class IndexView(TemplateView):
+    template_name = 'basic_app/index.html'
