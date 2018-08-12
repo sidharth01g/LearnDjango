@@ -14,6 +14,8 @@ class School(models.Model):
 class Student(models.Model):
     name = models.CharField(max_length=500)
     age = models.IntegerField()
+    # related_name='students' allows us to use {% for student in school_detail.students.all %}
+    # in school_detail.html
     school = models.ForeignKey(to=School, on_delete=models.CASCADE, related_name='students')
 
     def __str__(self):
