@@ -6,5 +6,9 @@
     <p>Name: {{ school_detail.name }}</p>
     <p>Location: {{ school_detail.location }}</p>
     <p>Principal: {{ school_detail.principal }}</p>
+    <h3>Students</h3>
+    {% for student in school_detail.students.all %}
+        <p>Name: {{ student.name }} Age: {{ student.age }}</p>
+    {% endfor %}
 </div>
 {% endblock %}
