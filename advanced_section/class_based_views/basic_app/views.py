@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from . import models
 
 
@@ -35,6 +35,12 @@ class SchoolDetailView(DetailView):
 
 
 class SchoolCreateView(CreateView):
+    fields = ('name', 'principal', 'location')
+    model = models.School
+    template_name = 'basic_app/school_create.html'
+
+
+class SchoolUpdateView(UpdateView):
     fields = ('name', 'principal', 'location')
     model = models.School
     template_name = 'basic_app/school_create.html'
