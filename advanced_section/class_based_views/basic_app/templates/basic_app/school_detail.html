@@ -13,5 +13,6 @@
 </div>
 <div class="container">
     <p><a href="{% url 'basic_app:school_update' pk=school_detail.pk %}" class="btn btn-primary">Update</a></p>
+    <p><a href="{% url 'basic_app:school_delete' pk=school_detail.pk %}" class="btn btn-primary">Delete</a></p>
 </div>
 {% endblock %}

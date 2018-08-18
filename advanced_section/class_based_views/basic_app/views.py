@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from . import models
+from django.urls import reverse_lazy
 
 
 class IndexView(TemplateView):
@@ -38,9 +39,17 @@ class SchoolCreateView(CreateView):
     fields = ('name', 'principal', 'location')
     model = models.School
     template_name = 'basic_app/school_create.html'
+    # Redirect to this URL after successfully creating a school record
+    success_url = reverse_lazy('basic_app:school_list')
 
 
 class SchoolUpdateView(UpdateView):
     fields = ('name', 'principal', 'location')
     model = models.School
     template_name = 'basic_app/school_create.html'
+
+
+class SchoolDeleteView(DeleteView):
+    model = models.School
+    # Redirect to this URL after successfully deleting a school record
+    success_url = reverse_lazy('basic_app:school_list')
