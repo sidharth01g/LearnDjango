@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -9,6 +10,15 @@ class School(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        """
+        Get URL from view/model
+
+        Returns:
+            URL
+        """
+        return reverse(viewname='basic_app:school_create')
 
 
 class Student(models.Model):
