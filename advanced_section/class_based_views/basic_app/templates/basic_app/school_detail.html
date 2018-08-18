@@ -8,7 +8,10 @@
     <p>Principal: {{ school_detail.principal }}</p>
     <h3>Students</h3>
     {% for student in school_detail.students.all %}
-        <p>Name: {{ student.name }} Age: {{ student.age }}</p>
+        <p>Name: {{ student.name }}, Age: {{ student.age }}</p>
     {% endfor %}
+</div>
+<div class="container">
+    <p><a href="{% url 'basic_app:school_update' pk=school_detail.pk %}" class="btn btn-primary">Update</a></p>
 </div>
 {% endblock %}
