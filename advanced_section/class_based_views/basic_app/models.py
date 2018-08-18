@@ -18,7 +18,7 @@ class School(models.Model):
         Returns:
             URL
         """
-        return reverse(viewname='basic_app:school_create')
+        return reverse(viewname='basic_app:school_create', kwargs={'pk': self.pk})
 
 
 class Student(models.Model):
